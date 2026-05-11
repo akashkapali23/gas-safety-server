@@ -1,6 +1,11 @@
 // ============================================================
 // Gas Leak Detection System — Node.js Cloud Relay Server
 // Stack  : Node.js + Express + Socket.io + Telegram Alerts
+// Fixes applied:
+//   1. Telegram token moved to environment variable (TELEGRAM_TOKEN)
+//   2. Telegram chat ID moved to environment variable (TELEGRAM_CHAT_ID)
+//   3. Added /health endpoint with last-seen timestamp
+//   4. Added console log for every /publish call
 // Authors: Akash Kapali, Kisholoy Roy, Swayan Das, Praghya Roy
 // ============================================================
 
@@ -20,11 +25,17 @@ const PORT = process.env.PORT || 3000;
 
 // ─────────────────────────────────────────────
 // TELEGRAM CONFIGURATION
+// ⚠️  Set these in Render → Environment tab.
+//     Never hardcode tokens in source files.
 // ─────────────────────────────────────────────
-const TELEGRAM_TOKEN   = "8786981395:AAFriEs3nD6rJQuUO9ckB0Dtp6VioO44GYo";
-const TELEGRAM_CHAT_ID = "5007380331";
+const TELEGRAM_TOKEN   = process.env.TELEGRAM_TOKEN   || "";
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID || "";
 
 function sendTelegram(message) {
+  if (!TELEGRAM_TOKEN || !TELEGRAM_CHAT_ID) {
+    console.warn("[TELEGRAM] Token or chat ID not set — skipping alert.");
+    return;
+  }
   const url  = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`;
   const body = JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: "HTML" });
   const options = {
@@ -137,7 +148,14 @@ app.post("/publish", (req, res) => {
 
   recordIncident(latestData);
   io.emit("sensorUpdate", latestData);
-  console.log(`[PUBLISH] ${latestData.state.toUpperCase()} | MQ2=${latestData.mq2} MQ6=${latestData.mq6} MQ135=${latestData.mq135}`);
+
+  console.log(
+    `[PUBLISH] ${latestData.state.toUpperCase()} | ` +
+    `MQ2=${latestData.mq2} MQ6=${latestData.mq6} MQ135=${latestData.mq135} ` +
+    `Temp=${latestData.temp} Hum=${latestData.humidity} ` +
+    `Alarm=${latestData.alarm} Fan=${latestData.fan} Reg=${latestData.regulator}`
+  );
+
   res.json({ ok: true });
 });
 
@@ -150,7 +168,6 @@ app.post("/command", (req, res) => {
   if (!action || !VALID.includes(action))
     return res.status(400).json({ error: "Unknown action. Valid: " + VALID.join(", ") });
 
-  // WiFi change command — requires ssid + password
   if (action === "wifi_change") {
     if (!ssid || !password)
       return res.status(400).json({ error: "wifi_change requires ssid and password fields" });
@@ -176,7 +193,7 @@ app.get("/pending", (req, res) => {
 });
 
 // ─────────────────────────────────────────────
-// GET /remote-data
+// GET /remote-data — Dashboard polls for latest data
 // ─────────────────────────────────────────────
 app.get("/remote-data", (req, res) => res.json(latestData));
 
@@ -189,11 +206,14 @@ app.get("/incidents", (req, res) => {
 });
 
 // ─────────────────────────────────────────────
-// GET /health
+// GET /health — quick sanity check
 // ─────────────────────────────────────────────
 app.get("/health", (req, res) => res.json({
-  ok: true, uptime: process.uptime(),
-  pending: pendingCommand, lastSeen: latestData.timestamp
+  ok: true,
+  uptime: process.uptime(),
+  pending: pendingCommand,
+  lastSeen: latestData.timestamp,
+  lastState: latestData.state
 }));
 
 // ─────────────────────────────────────────────
@@ -211,5 +231,6 @@ io.on("connection", (socket) => {
 server.listen(PORT, () => {
   console.log(`[SERVER] Running on http://localhost:${PORT}`);
   console.log(`[SERVER] Dashboard: http://localhost:${PORT}/main.html`);
+  console.log(`[SERVER] Telegram token set: ${TELEGRAM_TOKEN ? "YES" : "NO — set TELEGRAM_TOKEN env var"}`);
   sendTelegram(`✅ <b>Gas Safety Server Started!</b>\n🌐 System is online and monitoring.\n🕐 ${new Date().toLocaleTimeString()}`);
 });
