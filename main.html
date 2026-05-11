@@ -46,7 +46,6 @@
       overflow-x: hidden;
     }
 
-    /* grid noise texture */
     body::before {
       content: '';
       position: fixed;
@@ -79,11 +78,7 @@
       gap: 12px;
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+    .logo { display: flex; align-items: center; gap: 12px; }
 
     .logo-icon {
       width: 34px; height: 34px;
@@ -94,25 +89,10 @@
       font-size: 16px;
     }
 
-    .logo h1 {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--text);
-      letter-spacing: -0.2px;
-    }
+    .logo h1 { font-size: 15px; font-weight: 500; color: var(--text); letter-spacing: -0.2px; }
+    .logo p  { font-size: 11px; color: var(--text3); font-family: var(--mono); margin-top: 1px; }
 
-    .logo p {
-      font-size: 11px;
-      color: var(--text3);
-      font-family: var(--mono);
-      margin-top: 1px;
-    }
-
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    .header-right { display: flex; align-items: center; gap: 10px; }
 
     .live-pill {
       display: flex;
@@ -127,19 +107,13 @@
       border-radius: 20px;
     }
 
-    .pulse {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: var(--green);
-      animation: pulse 1.6s infinite;
-    }
-
-    .pulse.err { background: var(--red); animation: none; }
+    .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse 1.6s infinite; }
+    .pulse.err  { background: var(--red);   animation: none; }
     .pulse.warn { background: var(--amber); }
 
     @keyframes pulse {
       0%,100% { opacity:1; box-shadow: 0 0 0 0 rgba(0,214,143,0.4); }
-      50% { opacity:.6; box-shadow: 0 0 0 5px rgba(0,214,143,0); }
+      50%      { opacity:.6; box-shadow: 0 0 0 5px rgba(0,214,143,0); }
     }
 
     /* ── TABS ── */
@@ -151,17 +125,14 @@
       overflow-x: auto;
       scrollbar-width: none;
     }
-
     .tabs::-webkit-scrollbar { display: none; }
 
     .tab {
-      font-size: 12px;
-      font-weight: 500;
+      font-size: 12px; font-weight: 500;
       padding: 9px 16px;
       cursor: pointer;
       color: var(--text3);
-      border: none;
-      border-bottom: 2px solid transparent;
+      border: none; border-bottom: 2px solid transparent;
       background: none;
       margin-bottom: -1px;
       white-space: nowrap;
@@ -169,8 +140,7 @@
       transition: color .15s;
       letter-spacing: 0.2px;
     }
-
-    .tab:hover { color: var(--text2); }
+    .tab:hover  { color: var(--text2); }
     .tab.active { color: var(--text); border-bottom-color: var(--blue); }
 
     .page { display: none; }
@@ -191,7 +161,6 @@
       border: 1px solid;
       transition: all .4s;
     }
-
     .banner-icon { font-size: 16px; }
     .banner.safe    { background: var(--green-bg); color: var(--green-txt); border-color: rgba(0,214,143,0.2); }
     .banner.warning { background: var(--amber-bg); color: var(--amber-txt); border-color: rgba(255,179,71,0.2); }
@@ -199,7 +168,7 @@
 
     @keyframes dangerPulse {
       0%,100% { border-color: rgba(255,77,109,0.2); }
-      50% { border-color: rgba(255,77,109,0.6); }
+      50%      { border-color: rgba(255,77,109,0.6); }
     }
 
     /* ── REGULATOR HERO ── */
@@ -222,13 +191,12 @@
       font-size: 28px;
       transition: background .4s;
     }
-
     .reg-icon-wrap.open { background: var(--green-bg); border: 1px solid rgba(0,214,143,0.2); }
     .reg-icon-wrap.shut { background: var(--red-bg);   border: 1px solid rgba(255,77,109,0.2); animation: regPulse 1.2s infinite; }
 
     @keyframes regPulse {
       0%,100% { box-shadow: 0 0 0 0 rgba(255,77,109,0.3); }
-      50% { box-shadow: 0 0 0 12px rgba(255,77,109,0); }
+      50%      { box-shadow: 0 0 0 12px rgba(255,77,109,0); }
     }
 
     .reg-info { flex: 1; }
@@ -256,7 +224,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .mcard::before {
       content: '';
       position: absolute;
@@ -266,34 +233,30 @@
       opacity: 0;
       transition: opacity .3s;
     }
-
-    .mcard.warn::before { background: var(--amber); opacity: 1; }
-    .mcard.danger::before { background: var(--red); opacity: 1; }
-    .mcard.warn { border-color: rgba(255,179,71,0.2); }
+    .mcard.warn::before   { background: var(--amber); opacity: 1; }
+    .mcard.danger::before { background: var(--red);   opacity: 1; }
+    .mcard.warn   { border-color: rgba(255,179,71,0.2); }
     .mcard.danger { border-color: rgba(255,77,109,0.2); }
 
     .mcard-label { font-size: 10px; color: var(--text3); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .8px; font-family: var(--mono); }
-    .mcard-val { font-size: 28px; font-weight: 600; color: var(--text); line-height: 1; font-family: var(--mono); letter-spacing: -1px; }
-    .mcard-unit { font-size: 10px; color: var(--text3); margin-top: 3px; font-family: var(--mono); }
+    .mcard-val   { font-size: 28px; font-weight: 600; color: var(--text); line-height: 1; font-family: var(--mono); letter-spacing: -1px; }
+    .mcard-unit  { font-size: 10px; color: var(--text3); margin-top: 3px; font-family: var(--mono); }
 
     .badge {
       display: inline-block;
-      font-size: 10px;
-      font-weight: 500;
+      font-size: 10px; font-weight: 500;
       padding: 2px 8px;
       border-radius: 20px;
       margin-top: 7px;
       font-family: var(--mono);
     }
-
     .b-safe   { background: var(--green-bg); color: var(--green-txt); }
     .b-warn   { background: var(--amber-bg); color: var(--amber-txt); }
     .b-danger { background: var(--red-bg);   color: var(--red-txt); }
 
     /* ── OUTPUT STATES ── */
     .section-label {
-      font-size: 10px;
-      font-weight: 500;
+      font-size: 10px; font-weight: 500;
       color: var(--text3);
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -315,9 +278,8 @@
       padding: 14px 12px;
       text-align: center;
     }
-
     .out-label { font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: .5px; font-family: var(--mono); margin-bottom: 8px; }
-    .out-dot { width: 8px; height: 8px; border-radius: 50%; margin: 0 auto 6px; }
+    .out-dot   { width: 8px; height: 8px; border-radius: 50%; margin: 0 auto 6px; }
     .dot-green { background: var(--green); box-shadow: 0 0 8px var(--green); }
     .dot-red   { background: var(--red);   box-shadow: 0 0 8px var(--red); }
     .dot-amber { background: var(--amber); box-shadow: 0 0 8px var(--amber); }
@@ -341,32 +303,21 @@
       flex-wrap: wrap;
       gap: 8px;
     }
-
     .ctrl-hdr-title { font-size: 13px; font-weight: 500; color: var(--text); }
-    .ctrl-mode-lbl { font-size: 10px; color: var(--text3); font-family: var(--mono); }
+    .ctrl-mode-lbl  { font-size: 10px; color: var(--text3); font-family: var(--mono); }
 
     .ctrl-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       gap: 12px;
     }
-
     .ctrl-group { display: flex; flex-direction: column; gap: 6px; }
-
-    .ctrl-label {
-      font-size: 10px;
-      color: var(--text3);
-      text-transform: uppercase;
-      letter-spacing: .8px;
-      font-family: var(--mono);
-    }
-
-    .ctrl-btns { display: flex; gap: 6px; }
+    .ctrl-label { font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: .8px; font-family: var(--mono); }
+    .ctrl-btns  { display: flex; gap: 6px; }
 
     .cbtn-ctrl {
       flex: 1;
-      font-size: 12px;
-      font-weight: 500;
+      font-size: 12px; font-weight: 500;
       padding: 9px 10px;
       border-radius: var(--radius);
       border: 1px solid var(--border2);
@@ -376,8 +327,7 @@
       transition: all .15s;
       font-family: var(--font);
     }
-
-    .cbtn-ctrl:hover { background: var(--bg4); color: var(--text); }
+    .cbtn-ctrl:hover    { background: var(--bg4); color: var(--text); }
     .cbtn-ctrl.act-green { background: var(--green-bg); color: var(--green-txt); border-color: rgba(0,214,143,0.3); }
     .cbtn-ctrl.act-red   { background: var(--red-bg);   color: var(--red-txt);   border-color: rgba(255,77,109,0.3); }
     .cbtn-ctrl.act-amber { background: var(--amber-bg); color: var(--amber-txt); border-color: rgba(255,179,71,0.3); }
@@ -395,7 +345,6 @@
       transition: all .15s;
       font-family: var(--font);
     }
-
     .ctrl-reset:hover { background: var(--bg4); color: var(--text); }
 
     .ctrl-response {
@@ -423,11 +372,9 @@
       flex-wrap: wrap;
       gap: 8px;
     }
-
     .chart-hdr span { font-size: 13px; font-weight: 500; color: var(--text); }
 
     .cbtns { display: flex; gap: 4px; flex-wrap: wrap; }
-
     .cbtn {
       font-size: 10px;
       padding: 4px 11px;
@@ -439,12 +386,16 @@
       font-family: var(--mono);
       transition: all .15s;
     }
-
     .cbtn:hover  { color: var(--text2); }
     .cbtn.active { background: var(--bg4); color: var(--text); border-color: var(--border2); }
 
     /* ── EVENT LOG ── */
-    .log-list { max-height: 200px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--bg4) transparent; }
+    .log-list {
+      max-height: 200px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--bg4) transparent;
+    }
 
     .log-item {
       display: flex;
@@ -453,7 +404,6 @@
       border-bottom: 1px solid var(--border);
       align-items: flex-start;
     }
-
     .log-item:last-child { border-bottom: none; }
     .log-time { font-size: 10px; color: var(--text3); font-family: var(--mono); white-space: nowrap; min-width: 55px; }
     .log-dot  { width: 6px; height: 6px; border-radius: 50%; margin-top: 4px; flex-shrink: 0; }
@@ -466,14 +416,7 @@
     .inc-table tr:last-child td { border-bottom: none; }
     .inc-table tr:hover td { background: var(--bg3); }
 
-    .inc-state {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 500;
-      padding: 2px 9px;
-      border-radius: 20px;
-    }
-
+    .inc-state { display: inline-block; font-size: 10px; font-weight: 500; padding: 2px 9px; border-radius: 20px; }
     .inc-state.danger  { background: var(--red-bg);   color: var(--red-txt); }
     .inc-state.warning { background: var(--amber-bg); color: var(--amber-txt); }
     .inc-empty { font-size: 12px; color: var(--text3); padding: 20px 0; font-family: var(--mono); }
@@ -486,7 +429,6 @@
       padding: 20px 22px;
       margin-bottom: 14px;
     }
-
     .stitle { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 16px; letter-spacing: -0.2px; }
 
     .field { margin-bottom: 13px; }
@@ -504,15 +446,12 @@
       outline: none;
       transition: border-color .15s;
     }
-
     .field input:focus, .field select:focus { border-color: var(--blue); }
     .field select option { background: var(--bg3); }
-
     .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
     .sbtn {
-      font-size: 12px;
-      font-weight: 500;
+      font-size: 12px; font-weight: 500;
       padding: 9px 18px;
       border-radius: var(--radius);
       border: 1px solid var(--border2);
@@ -522,22 +461,12 @@
       transition: all .15s;
       font-family: var(--font);
     }
-
     .sbtn:hover { background: var(--bg4); color: var(--text); }
     .sbtn.primary { background: var(--blue-bg); color: var(--blue-txt); border-color: rgba(77,158,255,0.3); }
     .sbtn.primary:hover { background: rgba(77,158,255,0.15); }
 
-    .conn-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      color: var(--text3);
-      font-family: var(--mono);
-      margin-left: 10px;
-    }
-
-    .conn-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--text3); }
+    .conn-status { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text3); font-family: var(--mono); margin-left: 10px; }
+    .conn-dot    { width: 7px; height: 7px; border-radius: 50%; background: var(--text3); }
     .conn-dot.ok  { background: var(--green); box-shadow: 0 0 6px var(--green); }
     .conn-dot.err { background: var(--red); }
 
@@ -547,47 +476,20 @@
     .wtable td { padding: 9px 12px; border-bottom: 1px solid var(--border); color: var(--text2); font-size: 12px; }
     .wtable tr:last-child td { border-bottom: none; }
 
-    .chip {
-      display: inline-block;
-      font-size: 10px;
-      font-family: var(--mono);
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-weight: 600;
-    }
-
-    .chip-gpio { background: var(--blue-bg); color: var(--blue-txt); }
-    .chip-vcc  { background: var(--red-bg);  color: var(--red-txt); }
-    .chip-gnd  { background: var(--bg4);     color: var(--text3); }
-    .chip-green{ background: var(--green-bg);color: var(--green-txt); }
+    .chip { display: inline-block; font-size: 10px; font-family: var(--mono); padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+    .chip-gpio  { background: var(--blue-bg);  color: var(--blue-txt); }
+    .chip-vcc   { background: var(--red-bg);   color: var(--red-txt); }
+    .chip-gnd   { background: var(--bg4);      color: var(--text3); }
+    .chip-green { background: var(--green-bg); color: var(--green-txt); }
 
     /* ── HELP ── */
-    .acc-group {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      margin-bottom: 8px;
-      overflow: hidden;
-    }
-
-    .acc-trigger {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 16px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      text-align: left;
-    }
-
-    .acc-icon { font-size: 16px; }
-    .acc-title { font-size: 13px; font-weight: 500; color: var(--text); flex: 1; }
+    .acc-group { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 8px; overflow: hidden; }
+    .acc-trigger { width: 100%; display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: none; border: none; cursor: pointer; text-align: left; }
+    .acc-icon    { font-size: 16px; }
+    .acc-title   { font-size: 13px; font-weight: 500; color: var(--text); flex: 1; }
     .acc-chevron { font-size: 10px; color: var(--text3); transition: transform .2s; }
     .acc-trigger.open .acc-chevron { transform: rotate(180deg); }
-
-    .acc-body { display: none; padding: 0 16px 16px 44px; font-size: 13px; color: var(--text2); line-height: 1.8; }
+    .acc-body      { display: none; padding: 0 16px 16px 44px; font-size: 13px; color: var(--text2); line-height: 1.8; }
     .acc-body.open { display: block; }
     .acc-body strong { color: var(--text); }
     .acc-body ul { margin: 8px 0 8px 14px; }
@@ -793,9 +695,14 @@
   <div class="page" id="page-setup">
     <div class="scard">
       <div class="stitle">Server connection</div>
+      <p style="font-size:12px;color:var(--text2);margin-bottom:12px;line-height:1.7">
+        ⚠️ This URL must match the <code style="font-family:var(--mono);color:var(--blue)">SERVER_URL</code>
+        defined in your ESP32 firmware. Both must point to the same Render server.
+      </p>
       <div class="field">
         <label>Render server URL</label>
-        <input type="text" id="cfg-server" value="https://gas-safety-server.onrender.com" placeholder="https://your-server.onrender.com"/>
+        <!-- FIX: Default matches ESP32 SERVER_URL -->
+        <input type="text" id="cfg-server" value="https://gas-safety-server-1.onrender.com" placeholder="https://your-server.onrender.com"/>
       </div>
       <button class="sbtn primary" onclick="applyConfig()">Connect</button>
       <span class="conn-status">
@@ -804,14 +711,23 @@
       </span>
     </div>
 
-
     <!-- WiFi Change Card -->
     <div class="scard">
-      <div class="stitle">&#x1F4F6; Change ESP32 WiFi</div>
-      <p style="font-size:12px;color:var(--text2);margin-bottom:14px;line-height:1.7">Enter new WiFi credentials and click Send. The ESP32 will receive them within 3 seconds, save to permanent memory, and reconnect automatically.</p>
+      <div class="stitle">📶 Change ESP32 WiFi</div>
+      <p style="font-size:12px;color:var(--text2);margin-bottom:14px;line-height:1.7">
+        Enter new WiFi credentials and click Send. The ESP32 will receive them within 3 seconds,
+        save to permanent memory, and reconnect automatically.
+      </p>
       <div class="field"><label>WiFi Name (SSID)</label><input type="text" id="wifi-ssid" placeholder="e.g. MyHomeWiFi" maxlength="32"/></div>
-      <div class="field"><label>WiFi Password</label><input type="password" id="wifi-pass" placeholder="Enter password" maxlength="64"/>
-        <div style="margin-top:5px"><label style="font-size:11px;color:var(--text3);display:flex;align-items:center;gap:6px;cursor:pointer"><input type="checkbox" onchange="document.getElementById('wifi-pass').type=this.checked?'text':'password'" style="width:auto"/>  Show password</label></div>
+      <div class="field">
+        <label>WiFi Password</label>
+        <input type="password" id="wifi-pass" placeholder="Enter password" maxlength="64"/>
+        <div style="margin-top:5px">
+          <label style="font-size:11px;color:var(--text3);display:flex;align-items:center;gap:6px;cursor:pointer">
+            <input type="checkbox" onchange="document.getElementById('wifi-pass').type=this.checked?'text':'password'" style="width:auto"/>
+            Show password
+          </label>
+        </div>
       </div>
       <button class="sbtn primary" onclick="sendWifiChange()">Send to ESP32</button>
       <div class="ctrl-response" id="wifi-response" style="margin-top:10px"></div>
@@ -858,20 +774,25 @@
           <tr><td>Green LED</td><td><span class="chip chip-gpio">D13</span></td><td>220Ω resistor</td></tr>
           <tr><td>LCD SDA</td><td><span class="chip chip-gpio">A4</span></td><td>I2C data</td></tr>
           <tr><td>LCD SCL</td><td><span class="chip chip-gpio">A5</span></td><td>I2C clock</td></tr>
+          <tr><td>ESP32 TX (SoftSerial)</td><td><span class="chip chip-gpio">D4</span></td><td>SoftwareSerial RX from ESP32</td></tr>
+          <tr><td>ESP32 RX (SoftSerial)</td><td><span class="chip chip-gpio">D5</span></td><td>SoftwareSerial TX to ESP32</td></tr>
           <tr><td>All VCC</td><td><span class="chip chip-vcc">5V</span></td><td>Power</td></tr>
           <tr><td>All GND</td><td><span class="chip chip-gnd">GND</span></td><td>Common ground</td></tr>
         </tbody>
       </table>
     </div>
     <div class="scard">
-      <div class="stitle">Arduino → ESP32 connection</div>
+      <div class="stitle">Arduino → ESP32 UART connection</div>
+      <p style="font-size:12px;color:var(--amber-txt);background:var(--amber-bg);border:1px solid rgba(255,179,71,0.2);border-radius:8px;padding:10px 14px;margin-bottom:14px;line-height:1.7">
+        ⚠️ <strong>Do NOT use D0/D1 (hardware serial)</strong> — those pins share the USB connection and will collide when Arduino is plugged in. Use SoftwareSerial on D4/D5 instead.
+      </p>
       <table class="wtable">
         <thead><tr><th>Arduino</th><th>ESP32</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>TX (D1)</td><td><span class="chip chip-gpio">GPIO16 (RX2)</span></td><td>Via voltage divider (1kΩ + 2kΩ)</td></tr>
-          <tr><td>RX (D0)</td><td><span class="chip chip-gpio">GPIO17 (TX2)</span></td><td>Direct wire</td></tr>
+          <tr><td>D5 (SoftSerial TX)</td><td><span class="chip chip-gpio">GPIO16 (RX2)</span></td><td>Via voltage divider (1kΩ + 2kΩ) — 5V→3.3V</td></tr>
+          <tr><td>D4 (SoftSerial RX)</td><td><span class="chip chip-gpio">GPIO17 (TX2)</span></td><td>Direct wire (3.3V safe)</td></tr>
           <tr><td>GND</td><td><span class="chip chip-gnd">GND</span></td><td>Must share ground</td></tr>
-          <tr><td>5V</td><td><span class="chip chip-vcc">VIN</span></td><td>Powers ESP32</td></tr>
+          <tr><td>5V</td><td><span class="chip chip-vcc">VIN</span></td><td>Powers ESP32 from Arduino</td></tr>
         </tbody>
       </table>
     </div>
@@ -881,7 +802,8 @@
         → <strong style="color:var(--text)">DHT sensor library</strong> by Adafruit<br>
         → <strong style="color:var(--text)">LiquidCrystal I2C</strong> by Frank de Brabander<br>
         → <strong style="color:var(--text)">ArduinoJson</strong> by Benoit Blanchon<br>
-        → <strong style="color:var(--text)">Servo</strong> — built-in, no install<br>
+        → <strong style="color:var(--text)">SoftwareSerial</strong> — built-in, no install needed<br>
+        → <strong style="color:var(--text)">Servo</strong> — built-in, no install needed<br>
         → <strong style="color:var(--text)">WiFi / HTTPClient</strong> — included in ESP32 core
       </p>
     </div>
@@ -893,7 +815,7 @@
     <div class="scard" style="margin-bottom:14px">
       <div class="stitle">How the system works</div>
       <p style="font-size:13px;color:var(--text2);line-height:1.9">
-        Arduino reads MQ-2, MQ-6 and MQ-135 gas sensors + DHT11 every 500ms. MQ-2 (A3) detects smoke and LPG; MQ-6 (A0) targets LPG/propane; MQ-135 (A1) monitors air quality. If gas exceeds threshold, it instantly triggers buzzers, fan, closes servo valve, and turns on red LED. Every 2 seconds, Arduino sends JSON data to ESP32 via serial wire. ESP32 connects to WiFi and posts this data to your Render server. The server broadcasts it to this dashboard via Socket.io in real time. Telegram alerts are sent when state changes.
+        Arduino reads MQ-2, MQ-6 and MQ-135 gas sensors + DHT11 every 500ms. MQ-2 (A3) detects smoke and LPG; MQ-6 (A0) targets LPG/propane; MQ-135 (A1) monitors air quality. If gas exceeds threshold, it instantly triggers buzzers, fan, closes servo valve, and turns on red LED. Every 2 seconds, Arduino sends a JSON string to ESP32 via SoftwareSerial (D5→GPIO16). ESP32 connects to WiFi and posts this data to your Render server every 3 seconds. The server broadcasts it to this dashboard via Socket.io in real time. Telegram alerts fire on state changes.
       </p>
     </div>
 
@@ -938,11 +860,12 @@
       </button>
       <div class="acc-body">
         <ul>
-          <li>Check ESP32 is powered and WiFi connected (Serial Monitor → 9600 baud)</li>
-          <li>Check Arduino D0/D1 wires are reconnected to ESP32 after upload</li>
-          <li>Check Render server is live (green "Live" badge on Render dashboard)</li>
-          <li>Go to Setup tab and click Connect to reconnect dashboard to server</li>
-          <li>Render free tier sleeps after 15 min — first request may take 30 seconds to wake</li>
+          <li>Open Serial Monitor at <strong>115200 baud</strong> — you will see WiFi status and HTTP response codes</li>
+          <li>HTTP <strong>-1</strong> = timeout. Render free tier sleeps — first request may take 30–50 s to wake</li>
+          <li>Check that <code style="font-family:var(--mono)">SERVER_URL</code> in ESP32 code exactly matches the URL in Setup tab</li>
+          <li>Check Arduino D4/D5 wires are connected to ESP32 GPIO16/17 (not D0/D1)</li>
+          <li>Disconnect Arduino TX/RX wires before flashing ESP32, reconnect after</li>
+          <li>Go to Setup tab and click Connect to re-link dashboard to server</li>
         </ul>
       </div>
     </div>
@@ -953,14 +876,14 @@
 
 <script>
   // ═══════════════════════════════
-  // CONFIG
+  // FIX: SERVER URL matches ESP32 SERVER_URL define
   // ═══════════════════════════════
-  let SERVER = 'https://gas-safety-server.onrender.com';
-  let socket = null;
+  let SERVER = 'https://gas-safety-server-1.onrender.com';
+
+  let socket    = null;
   let pollTimer = null;
-  let logCount = 0;
+  let logCount  = 0;
   let lastState = '';
-  let lastRegulator = '';
 
   let THRESH = {
     mq2w: 300, mq2d: 400,
@@ -969,25 +892,20 @@
     tw: 40, td: 55
   };
 
-  // Chart history
-  const hist = { mq2:[], mq6:[], mq135:[], temp:[], humidity:[] };
+  const hist  = { mq2:[], mq6:[], mq135:[], temp:[], humidity:[] };
   const hlbls = [];
   let activeM = 'mq2';
   let lChart;
 
-  // ═══════════════════════════════
-  // INIT
-  // ═══════════════════════════════
   window.onload = () => {
     initChart();
     connect();
   };
 
   // ═══════════════════════════════
-  // CONNECT TO SERVER
+  // CONNECT
   // ═══════════════════════════════
   function connect() {
-    // Socket.io for real-time push
     try {
       if (socket) socket.disconnect();
       socket = io(SERVER, { transports: ['websocket','polling'] });
@@ -999,23 +917,15 @@
 
       socket.on('disconnect', () => {
         setStatus(false, 'Disconnected');
-        addLog('danger', 'Server connection lost');
-        startPolling(); // fallback to polling
+        addLog('danger', 'Server connection lost — falling back to polling');
+        startPolling();
       });
 
-      socket.on('sensorUpdate', (data) => {
-        ingest(data);
-      });
-
-      socket.on('connect_error', () => {
-        startPolling(); // fallback
-      });
-
+      socket.on('sensorUpdate', (data) => { ingest(data); });
+      socket.on('connect_error', ()   => { startPolling(); });
     } catch(e) {
       startPolling();
     }
-
-    // Also poll as backup
     startPolling();
   }
 
@@ -1043,65 +953,50 @@
   function ingest(d) {
     if (!d || !d.timestamp) return;
 
-    const mq2   = d.mq2    || 0;
-    const mq6    = d.mq6    || 0;
-    const mq135  = d.mq135  || 0;
-    const temp   = d.temp   || 0;
-    const hum    = d.humidity || 0;
-    const state  = d.state  || 'safe';
-    const reg    = d.regulator || 'OPEN';
-    const alarm  = d.alarm  || false;
-    const fan    = d.fan    || false;
-    const manual = d.manual || false;
+    const mq2   = d.mq2      || 0;
+    const mq6   = d.mq6      || 0;
+    const mq135 = d.mq135    || 0;
+    const temp  = d.temp     || 0;
+    const hum   = d.humidity || 0;
+    const state = d.state    || 'safe';
+    const reg   = d.regulator|| 'OPEN';
+    const alarm = d.alarm    || false;
+    const fan   = d.fan      || false;
+    const manual= d.manual   || false;
 
-    // Update sensor cards
     updateCard('mq2',   mq2,   THRESH.mq2w,   THRESH.mq2d,   'v-mq2',   'b-mq2',   'card-mq2');
     updateCard('mq6',   mq6,   THRESH.mq6w,   THRESH.mq6d,   'v-mq6',   'b-mq6',   'card-mq6');
-    updateCard('mq135', mq135, THRESH.mq135w,  THRESH.mq135d, 'v-mq135', 'b-mq135', 'card-mq135');
+    updateCard('mq135', mq135, THRESH.mq135w, THRESH.mq135d, 'v-mq135', 'b-mq135', 'card-mq135');
 
     document.getElementById('v-tmp').textContent = temp;
     document.getElementById('v-hum').textContent = hum;
+    setBadge('b-tmp', temp > THRESH.td ? 'danger' : temp > THRESH.tw ? 'warn' : 'safe', 'card-tmp');
+    setBadge('b-hum', hum > 80 ? 'warn' : 'safe', 'card-hum');
 
-    const tmpLvl = temp > THRESH.td ? 'danger' : temp > THRESH.tw ? 'warn' : 'safe';
-    setBadge('b-tmp', tmpLvl, 'card-tmp');
-    const humLvl = hum > 80 ? 'warn' : 'safe';
-    setBadge('b-hum', humLvl, 'card-hum');
-
-    // Banner
     updateBanner(state);
-
-    // Regulator hero
     updateRegulator(reg);
 
-    // Output states
-    setOut('o-alarm-dot', 'o-alarm', alarm, alarm ? 'dot-red' : 'dot-off', alarm ? 'Active' : 'Inactive');
-    setOut('o-reg-dot', 'o-reg', reg === 'OPEN', reg === 'OPEN' ? 'dot-green' : 'dot-red', reg === 'OPEN' ? 'Open' : 'Closed');
-    setOut('o-fan-dot', 'o-fan', fan, fan ? 'dot-green' : 'dot-off', fan ? 'Running' : 'Off');
-    setOut('o-tg-dot', 'o-tg', state !== 'safe', state !== 'safe' ? 'dot-amber' : 'dot-off', state !== 'safe' ? 'Alert sent' : 'Standby');
-    setOut('o-ov-dot', 'o-ov', manual, manual ? 'dot-amber' : 'dot-off', manual ? 'Manual' : 'Auto');
+    setOut('o-alarm-dot', 'o-alarm', alarm, alarm ? 'dot-red'   : 'dot-off',   alarm ? 'Active'  : 'Inactive');
+    setOut('o-reg-dot',   'o-reg',   reg === 'OPEN', reg === 'OPEN' ? 'dot-green' : 'dot-red', reg === 'OPEN' ? 'Open' : 'Closed');
+    setOut('o-fan-dot',   'o-fan',   fan,   fan   ? 'dot-green' : 'dot-off',   fan   ? 'Running' : 'Off');
+    setOut('o-tg-dot',    'o-tg',    state !== 'safe', state !== 'safe' ? 'dot-amber' : 'dot-off', state !== 'safe' ? 'Alert sent' : 'Standby');
+    setOut('o-ov-dot',    'o-ov',    manual,manual ? 'dot-amber' : 'dot-off',   manual? 'Manual'  : 'Auto');
 
-    // Log state changes
     if (state !== lastState) {
       lastState = state;
-      const msgs = { safe: '✅ System returned to safe', warning: '⚠️ Warning — gas levels elevated', danger: '🚨 Danger — gas detected!' };
+      const msgs = { safe:'✅ System returned to safe', warning:'⚠️ Warning — gas levels elevated', danger:'🚨 Danger — gas detected!' };
       addLog(state, msgs[state] || state);
     }
 
-    // History
-    const now = new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',second:'2-digit'});
-    hist.mq2.push(mq2);
-    hist.mq6.push(mq6);
-    hist.mq135.push(mq135);
-    hist.temp.push(temp);
-    hist.humidity.push(hum);
+    const now = new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+    hist.mq2.push(mq2); hist.mq6.push(mq6); hist.mq135.push(mq135);
+    hist.temp.push(temp); hist.humidity.push(hum);
     hlbls.push(now);
     if (hist.mq2.length > 30) {
       ['mq2','mq6','mq135','temp','humidity'].forEach(k => hist[k].shift());
       hlbls.shift();
     }
     refreshLine();
-
-    // Update last seen time
     document.getElementById('reg-time').textContent = 'Last updated: ' + now;
   }
 
@@ -1110,18 +1005,15 @@
   // ═══════════════════════════════
   function updateCard(key, val, warnT, dangerT, valId, badgeId, cardId) {
     document.getElementById(valId).textContent = val;
-    const lvl = val >= dangerT ? 'danger' : val >= warnT ? 'warn' : 'safe';
-    setBadge(badgeId, lvl, cardId);
+    setBadge(badgeId, val >= dangerT ? 'danger' : val >= warnT ? 'warn' : 'safe', cardId);
   }
 
   function setBadge(badgeId, lvl, cardId) {
     const badge = document.getElementById(badgeId);
     const card  = document.getElementById(cardId);
-    badge.className = 'badge ' + (lvl === 'danger' ? 'b-danger' : lvl === 'warn' ? 'b-warn' : 'b-safe');
+    badge.className   = 'badge ' + (lvl === 'danger' ? 'b-danger' : lvl === 'warn' ? 'b-warn' : 'b-safe');
     badge.textContent = lvl === 'danger' ? 'Danger' : lvl === 'warn' ? 'Warning' : 'Safe';
-    if (card) {
-      card.className = 'mcard ' + (lvl === 'danger' ? 'danger' : lvl === 'warn' ? 'warn' : '');
-    }
+    if (card) card.className = 'mcard ' + (lvl === 'danger' ? 'danger' : lvl === 'warn' ? 'warn' : '');
   }
 
   function updateBanner(state) {
@@ -1150,14 +1042,12 @@
   }
 
   function setOut(dotId, labelId, active, dotClass, label) {
-    const dot = document.getElementById(dotId);
-    dot.className = 'out-dot ' + dotClass;
+    document.getElementById(dotId).className = 'out-dot ' + dotClass;
     document.getElementById(labelId).textContent = label;
   }
 
   function setStatus(ok, msg) {
-    const dot = document.getElementById('hdr-dot');
-    dot.className = 'pulse' + (ok ? '' : ' err');
+    document.getElementById('hdr-dot').className = 'pulse' + (ok ? '' : ' err');
     document.getElementById('src-lbl').textContent = msg;
     document.getElementById('conn-dot').className = 'conn-dot ' + (ok ? 'ok' : 'err');
     document.getElementById('conn-lbl').textContent = ok ? 'Connected' : 'Disconnected';
@@ -1168,7 +1058,7 @@
     document.getElementById('log-count').textContent = logCount + ' events';
     const list = document.getElementById('log-list');
     if (list.querySelector('div')) list.innerHTML = '';
-    const colors = { safe: 'var(--green)', warning: 'var(--amber)', danger: 'var(--red)' };
+    const colors = { safe:'var(--green)', warning:'var(--amber)', danger:'var(--red)' };
     const t = new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',second:'2-digit'});
     const item = document.createElement('div');
     item.className = 'log-item';
@@ -1194,7 +1084,7 @@
       });
       const j = await r.json();
       if (j.ok) {
-        resp.textContent = '✓ Command sent — ESP32 will execute within 2s';
+        resp.textContent = '✓ Command sent — ESP32 will execute within 3 s';
         addLog('safe', 'Command sent: ' + action);
       } else {
         resp.textContent = '✗ ' + JSON.stringify(j);
@@ -1304,9 +1194,9 @@
     const password = document.getElementById('wifi-pass').value;
     const resp     = document.getElementById('wifi-response');
 
-    if (!ssid)     return (resp.textContent = '✗ Please enter a WiFi name (SSID)');
-    if (!password) return (resp.textContent = '✗ Please enter the WiFi password');
-    if (ssid.length > 32)     return (resp.textContent = '✗ SSID too long (max 32 chars)');
+    if (!ssid)              return (resp.textContent = '✗ Please enter a WiFi name (SSID)');
+    if (!password)          return (resp.textContent = '✗ Please enter the WiFi password');
+    if (ssid.length > 32)   return (resp.textContent = '✗ SSID too long (max 32 chars)');
     if (password.length > 64) return (resp.textContent = '✗ Password too long (max 64 chars)');
 
     resp.textContent = '⏳ Sending to ESP32...';
@@ -1323,7 +1213,6 @@
         resp.textContent = '✓ Sent! ESP32 will switch to "' + ssid + '" within 3 seconds and reconnect.';
         resp.style.color = 'var(--green)';
         addLog('safe', 'WiFi change sent → ' + ssid);
-        // Clear fields for security
         document.getElementById('wifi-ssid').value = '';
         document.getElementById('wifi-pass').value = '';
       } else {
@@ -1353,7 +1242,7 @@
   // ═══════════════════════════════
   function showTab(id, btn) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t  => t.classList.remove('active'));
     document.getElementById('page-' + id).classList.add('active');
     btn.classList.add('active');
   }
